@@ -25,7 +25,6 @@ public class MainViewActivity extends AppCompatActivity
   @Bind(R.id.spCity) Spinner spCity;
   @Bind(R.id.recyclerView) RecyclerView recyclerView;
   @Bind(R.id.loader) ProgressBar loader;
-  @Bind(R.id.txtCity) TextView city;
   @Bind(R.id.dayAverage) TextView dayAverage;
   @Bind(R.id.varianceAverage) TextView varianceAverage;
 
@@ -81,10 +80,6 @@ public class MainViewActivity extends AppCompatActivity
   @Override public void setDataSpinner(List<City> listCity) {
     spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listCity);
     spCity.setAdapter(spinnerAdapter);
-  }
-
-  @Override public void setCity(String name) {
-    city.setText(name);
   }
 
   @Override public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {

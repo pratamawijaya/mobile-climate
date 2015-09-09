@@ -92,7 +92,6 @@ public class MainPresenter {
             view.showData(resultWeather);
             view.showAverageDay(sumTempDay / COUNT_DAY);
             view.showAverageVariance(sumVariance / COUNT_DAY);
-            view.setCity(city);
           }
         });
   }

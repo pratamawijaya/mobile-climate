@@ -21,6 +21,4 @@ public interface MainInterfaces {
   void showAverageVariance(float data);
 
   void setDataSpinner(List<City> listCity);
-
-  void setCity(String city);
 }
