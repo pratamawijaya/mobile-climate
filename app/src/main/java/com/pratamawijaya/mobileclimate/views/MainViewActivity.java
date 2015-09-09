@@ -17,6 +17,7 @@ import com.pratamawijaya.mobileclimate.models.City;
 import com.pratamawijaya.mobileclimate.models.response.ResultWeather;
 import com.pratamawijaya.mobileclimate.presenters.MainPresenter;
 import com.pratamawijaya.mobileclimate.utils.DateUtils;
+import com.pratamawijaya.mobileclimate.utils.PreferenceUtils;
 import java.util.List;
 
 public class MainViewActivity extends AppCompatActivity
@@ -44,6 +45,10 @@ public class MainViewActivity extends AppCompatActivity
     presenter.loadDataSpinner();
 
     spCity.setOnItemSelectedListener(this);
+
+    if (PreferenceUtils.getDataIntFromSP(this, PreferenceUtils.SPINNER_POS, 0) != 0) {
+      spCity.setSelection(PreferenceUtils.getDataIntFromSP(this, PreferenceUtils.SPINNER_POS, 0));
+    }
   }
 
   /**
@@ -82,7 +87,9 @@ public class MainViewActivity extends AppCompatActivity
     spCity.setAdapter(spinnerAdapter);
   }
 
-  @Override public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+  @Override
+  public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+    PreferenceUtils.setDataIntTOSP(this, PreferenceUtils.SPINNER_POS, position);
     City city = (City) spCity.getSelectedItem();
     presenter.loadWeather(city.getName());
   }
