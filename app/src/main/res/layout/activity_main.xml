@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    >
+  <TextView
+      android:id="@+id/textCity"
+      android:text="City"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      />
+  <Spinner
+      android:layout_below="@id/textCity"
+      android:layout_width="match_parent"
+      android:id="@+id/spCity"
+      android:layout_height="wrap_content"
+      />
+
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_below="@id/spCity"
+      android:layout_width="match_parent"
+      android:id="@+id/detail"
+      android:layout_height="wrap_content"
+      >
+    <TextView
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-medium"
+        tools:text="Jakarta"
+        android:id="@+id/txtCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:id="@+id/dayAverage"
+        tools:text="7 Day Average"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:id="@+id/varianceAverage"
+        tools:text="7 Day Average"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <View
+        android:layout_marginTop="3dp"
+        android:background="#999"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+  </LinearLayout>
+
+  <android.support.v7.widget.RecyclerView
+      android:layout_below="@id/detail"
+      android:scrollbars="vertical"
+      android:layout_marginTop="10dp"
+      android:layout_width="match_parent"
+      android:id="@+id/recyclerView"
+      android:layout_height="match_parent"
+      />
+
+  <ProgressBar
+      android:visibility="gone"
+      android:layout_centerInParent="true"
+      android:id="@+id/loader"
+      android:layout_width="60dp"
+      android:layout_height="60dp"
+      />
+
+
+</RelativeLayout>
