@@ -1,5 +1,6 @@
 package com.pratamawijaya.mobileclimate.presenters;
 
+import com.pratamawijaya.mobileclimate.BuildConfig;
 import com.pratamawijaya.mobileclimate.data.network.RetrofitAPI;
 import com.pratamawijaya.mobileclimate.models.City;
 import com.pratamawijaya.mobileclimate.models.WeatherList;
@@ -60,8 +61,8 @@ public class MainPresenter {
     Timber.i("load weather for " + city);
     view.showLoading();
     service.getOpenWeatherAPI()
-        .getWeatherByCity(city, TYPE_REQUEST, UNITS, COUNT_DAY)
-        .subscribeOn(Schedulers.newThread())
+        .getWeatherByCity(city, TYPE_REQUEST, UNITS, COUNT_DAY, BuildConfig.APIKEY)
+        .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(new Observer<ResponseWeather>() {
           @Override public void onCompleted() {
